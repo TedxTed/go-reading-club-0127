@@ -1,0 +1,50 @@
+@startuml
+
+class 人 {
+  - name
+}
+
+class 汽車 {
+  + 乘載(person: 人): void
+  + {abstract} 發動引擎(): void
+  + 操作方向盤(): void
+  + 補油(): void
+  + 煞車(): void
+}
+
+class 機車 {
+  + 乘載(person: 人): void
+  + {abstract} 發動引擎(): void
+  + 轉動油門(): void
+  + 駕駛(): void
+  + 鎖車(): void
+  + 煞車(): void
+}
+
+class 電動車 {
+  + 發動引擎(): void
+}
+
+class 油電車 {
+  + 發動引擎(): void
+}
+
+class 普通機車 {
+  + 發動引擎(): void
+}
+
+class 檔車 {
+  + 發動引擎(): void
+}
+
+人 -down- 汽車 : 乘載
+人 -down- 機車 : 乘載
+
+
+汽車 <|-- 電動車
+汽車 <|-- 油電車
+
+機車 <|-- 普通機車
+機車 <|-- 檔車
+
+@enduml
